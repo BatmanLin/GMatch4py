@@ -12,6 +12,7 @@ from concurrent.futures import ProcessPoolExecutor
 import logging
 from multiprocessing import cpu_count
 
+import cython
 import networkx as nx
 import numpy as np
 cimport numpy as np
@@ -24,12 +25,16 @@ from sklearn.metrics.pairwise import cosine_similarity
 from joblib import Parallel, delayed
 import psutil
 
-cimport cython
-from ..base cimport Base
-import graph as graph2
-import walks as serialized_walks
-from skipgram import Skipgram
+import cython
+from ..base import Base
+# import graph as graph2
+# import walks as serialized_walks
+from deepwalk import graph as graph2
+from deepwalk import walks as serialized_walks
 
+# from skipgram import Skipgram
+# from deepwalk.skipgram import Skipgram as skipgram
+from deepwalk.skipgram import Skipgram
 
 p = psutil.Process(os.getpid())
 try:

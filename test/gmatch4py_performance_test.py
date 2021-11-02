@@ -1,7 +1,7 @@
 import os
 os.chdir(os.environ["HOME"])
 
-def test_mesure():
+def test_mesure(tqdm=None):
     import gmatch4py as gm
     import networkx as nx
     import time
